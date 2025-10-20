@@ -1,42 +1,42 @@
 ﻿:root {
-    --je-theme-core: var(--je-code-magic-core);
+    --je-theme-core: var(--je-hermit-crab-core);
     /* app background */
-    --je-theme-100: var(--je-code-magic-100);
+    --je-theme-100: var(--je-hermit-crab-100);
     /* subtle background */
-    --je-theme-150: var(--je-code-magic-150);
+    --je-theme-150: var(--je-hermit-crab-150);
     /* UI element background */
-    --je-theme-200: var(--je-code-magic-200);
+    --je-theme-200: var(--je-hermit-crab-200);
     /* hovered UI background */
-    --je-theme-300: var(--je-code-magic-300);
+    --je-theme-300: var(--je-hermit-crab-300);
     /* active UI */
-    --je-theme-400: var(--je-code-magic-400);
+    --je-theme-400: var(--je-hermit-crab-400);
     /* selected UI */
-    --je-theme-500: var(--je-code-magic-500);
+    --je-theme-500: var(--je-hermit-crab-500);
     /* subtle borders and spearators */
-    --je-theme-600: var(--je-code-magic-600);
+    --je-theme-600: var(--je-hermit-crab-600);
     /* element border / focus rings */
-    --je-theme-700: var(--je-code-magic-700);
+    --je-theme-700: var(--je-hermit-crab-700);
     /* hovered border  */
-    --je-theme-800: var(--je-code-magic-800);
+    --je-theme-800: var(--je-hermit-crab-800);
     /* hovered dark backgrounds */
-    --je-theme-850: var(--je-code-magic-850);
+    --je-theme-850: var(--je-hermit-crab-850);
     /* dark backgrounds */
-    --je-theme-900: var(--je-code-magic-900);
+    --je-theme-900: var(--je-hermit-crab-900);
    
-    /* #region code-magic */
-    --je-code-magic-core: #f2c864; /* yellow accent */
-    --je-code-magic-100: hsl(192, 77%, 79%); /* turqoise */
-    --je-code-magic-150: hsl(192, 77%, 74%);
-    --je-code-magic-200: #87bbd7;
-    --je-code-magic-300: hsl(192, 77%, 69%);
-    --je-code-magic-400: #f2c864;
-    --je-code-magic-500: hsl(192, 77%, 49%);
-    --je-code-magic-600: hsl(192, 77%, 39%);
-    --je-code-magic-700: hsl(192, 77%, 29%);
-    --je-code-magic-800: hsl(192, 77%, 19%);
-    --je-code-magic-850: hsl(192, 77%, 15%);
-    --je-code-magic-900: hsl(192, 77%, 9%);
-    /* #endregion code-magic */
+    /* #region hermit-crab */
+    --je-hermit-crab-core: #eb102a; /* red accent */
+    --je-hermit-crab-100: hsl(98, 37%, 94%); /* turqoise */
+    --je-hermit-crab-150: hsl(98, 37%, 89%);
+    --je-hermit-crab-200: #a4d687;
+    --je-hermit-crab-300: hsl(98, 37%, 72%);
+    --je-hermit-crab-400: #eb102a;
+    --je-hermit-crab-500: hsl(98, 37%, 48%);
+    --je-hermit-crab-600: hsl(98, 37%, 36%);
+    --je-hermit-crab-700: hsl(98, 37%, 24%);
+    --je-hermit-crab-800: hsl(98, 37%, 20%);
+    --je-hermit-crab-850: hsl(98, 37%, 16%);
+    --je-hermit-crab-900: hsl(98, 37%, 12%);
+    /* #endregion hermit-crab */
 
     /* #region blue */
     --je-blue-core: hsl(216, 98%, 52%);
@@ -251,7 +251,7 @@ a {
     font-family: var(--je-title-font) !important;
 }
 
-.je-theme-code-magic .tooltip-inner {
+.je-theme-hermit-crab .tooltip-inner {
     color: var(--je-theme-core) !important;
 }
 
@@ -261,20 +261,20 @@ a {
 }
 
 
-[data-je-theme="code-magic"],
-.je-theme-code-magic {
-    --je-theme-core: var(--je-code-magic-core);
-    --je-theme-100: var(--je-code-magic-100);
-    --je-theme-150: var(--je-code-magic-150);
-    --je-theme-200: var(--je-code-magic-200);
-    --je-theme-300: var(--je-code-magic-300);
-    --je-theme-400: var(--je-code-magic-400);
-    --je-theme-500: var(--je-code-magic-500);
-    --je-theme-600: var(--je-code-magic-600);
-    --je-theme-700: var(--je-code-magic-700);
-    --je-theme-800: var(--je-code-magic-800);
-    --je-theme-850: var(--je-code-magic-850);
-    --je-theme-900: var(--je-code-magic-900);
+[data-je-theme="hermit-crab"],
+.je-theme-hermit-crab {
+    --je-theme-core: var(--je-hermit-crab-core);
+    --je-theme-100: var(--je-hermit-crab-100);
+    --je-theme-150: var(--je-hermit-crab-150);
+    --je-theme-200: var(--je-hermit-crab-200);
+    --je-theme-300: var(--je-hermit-crab-300);
+    --je-theme-400: var(--je-hermit-crab-400);
+    --je-theme-500: var(--je-hermit-crab-500);
+    --je-theme-600: var(--je-hermit-crab-600);
+    --je-theme-700: var(--je-hermit-crab-700);
+    --je-theme-800: var(--je-hermit-crab-800);
+    --je-theme-850: var(--je-hermit-crab-850);
+    --je-theme-900: var(--je-hermit-crab-900);
 }
 
 [data-je-theme="blue"],
