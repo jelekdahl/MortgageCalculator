@@ -13,7 +13,7 @@ namespace MortgageCalculator.Models
 
         //Term is expressed in years
         [Range(1, 100, ErrorMessage = "Term must be between 1 and 100 years")]
-        public int Term {  get; set; }
+        public int Term { get; set; }
 
         public double Payment { get; set; }
         public double TotalInterest { get; set; }

@@ -1,9 +1,106 @@
 ﻿@page "/calculator"
 
 <div class="container-xxl my-3">
-    <h3>Calculator</h3>
+    <h1 class="mb-2">Loan Calculator</h1>
+    <div class="accordion mb-3" id="accordionWhatIsThis">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What is this App?
+                </button>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionWhatIsThis">
+                <div class="accordion-body small">
+                    <p>
+                        Thinking of borrowing money? Curious to see what the payments will look like -
+                        <i>before</i> you apply? This calculator is exactly what you need!
+                    </p>
+                    <p>
+                        This app helps borrowers calculate <b>amortized loans</b> - i.e. loans that are paid off
+                        in regular installments over time, with fixed payments covering both the principal amount
+                        and interest. Examples include mortgages, auto loans, student loans, and personal loans,
+                        to name a few.
+                    </p>
+                    <p>
+                        Use this calculator to see the total cost of a loan, expressed as the annual percentage
+                        rate, or APR. Enter the loan amount, term and interest rate in the fields, and click
+                        calculate to see your personalized results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 loanForm p-3 rounded-3">
+            <EditForm EditContext="editContext">
+                <DataAnnotationsValidator />
+                <div class="row gy-2">
+                    <div class="col-12">
+                        <label for="purchaseAmount" class="form-label">Purchase Amount:</label>
+                        <InputNumber @bind-Value="loan.PurchaseAmount" class="form-control" step="100" />
+                        <ValidationMessage For="() => loan.PurchaseAmount" />
+                    </div>
+                    <div class="col-12">
+                        <label for="loanTerm" class="form-label">Loan Term (Years):</label>
+                        <InputNumber @bind-Value="loan.Term" class="form-control" min="1" step="1" />
+                        <ValidationMessage For="() => loan.Term" />
+                    </div>
+                    <div class="col-12">
+                        <label for="loanRate" class="form-label">Rate:</label>
+                        <InputNumber @bind-Value="loan.Rate" class="form-control" min="0" step="0.1" />
+                        <ValidationMessage For="() => loan.Rate" />
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary mt-2">Calculate</button>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-between px-4 mt-4 mt-md-0">
+            <div class="paymentTitle">
+                <p class="mb-1">Your Monthly Payment</p>
+            </div>
+            <div class="display-1 payment">
+                @loan.Payment.ToString("C")
+            </div>
+            <div class="row border border-1 g-0 p-3">
+                <div class="col-6">
+                    <label class="text-start">Purchase Amount</label>
+                </div>
+                <div class="col-6 text-end">
+                    @loan.PurchaseAmount.ToString("C")
+                </div>
+                <div class="col-6">
+                    <label class="text-start">Total Interest</label>
+                </div>
+                <div class="col-6 text-end">
+                    @loan.TotalInterest.ToString("C")
+                </div>
+                <div class="col-6">
+                    <label class="text-start totalCost">Total Cost</label>
+                </div>
+                <div class="col-6 text-end totalCost">
+                    @loan.TotalCost.ToString("C")
+                </div>
+            </div>
+
+            <div class="text-center mt-2">
+                <button class="btn btn-primary">Show Schedule</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @code {
+    private Loan loan = new();
+    private EditContext? editContext;
 
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(loan);
+        loan.PurchaseAmount = 25000;
+        loan.Term = 5;
+        loan.Rate = 5.0;
+    }
 }

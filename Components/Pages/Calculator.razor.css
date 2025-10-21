@@ -1,0 +1,37 @@
+﻿.loanForm {
+    background-color: var(--je-theme-150);
+    border: solid 1px var(--bs-secondary-bg);
+}
+
+.loanForm input {
+    width: 100%;
+    padding: .5rem;
+}
+
+.paymentTitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.payment {
+    text-align: center;
+    font-weight: bold;
+    color: var(--je-theme-core);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.totalCost {
+    font-weight: bold;
+    color: var(--je-theme-core);
+}
+
+.accordion-header button {
+    background-color: var(--je-theme-100);
+}
+
+    .accordion-header button:hover,
+    .accordion-header button:active,
+    .accordion-header button:focus {
+        background-color: var(--je-theme-300);
+    }
