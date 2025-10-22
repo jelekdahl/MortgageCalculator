@@ -23,8 +23,8 @@
                         to name a few.
                     </p>
                     <p>
-                        Use this calculator to see the total cost of a loan, expressed as the annual percentage
-                        rate, or APR. Enter the loan amount, term and interest rate in the fields, and click
+                        Use this calculator to see the total cost of a loan, expressed as the <b>Annual Percentage
+                        Rate (APR)</b>. Enter the loan amount, term and interest rate in the fields, and click
                         calculate to see your personalized results.
                     </p>
                 </div>
@@ -89,12 +89,19 @@
                 <button class="btn btn-primary">Show Schedule</button>
             </div>
         </div>
+        @if (showSchedule)
+        {
+            <div class="col-12">
+
+            </div>
+        }
     </div>
 </div>
 
 @code {
     private Loan loan = new();
     private EditContext? editContext;
+    private bool showSchedule = false;
 
     protected override void OnInitialized()
     {
@@ -106,6 +113,6 @@
 
     private void HandleSubmit()
     {
-        loan.Payment = LoanUtils.CalcPayment(loan.PurchaseAmount, loan.Rate, loan.Term);
+        loan = LoanUtils.GetPayments(loan);
     }
 }
