@@ -1,0 +1,22 @@
+﻿.table-primary {
+    --bs-table-bg: var(--je-theme-100);
+    --bs-table-striped-bg: var(--je-theme-150);
+    --bs-table-hover-bg: var(--je-theme-300);
+    --bs-table-border-color: var(--je-theme-200);
+    --bs-border-color: var(--je-theme-200);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    --bs-table-bg: var(--je-theme-600);
+    color: var(--je-light-color);
+}
+
+.table-overflow {
+    overflow-y: auto;
+    max-height: calc(100vh - 9rem);
+}
