@@ -20,3 +20,15 @@ th {
     overflow-y: auto;
     max-height: calc(100vh - 9rem);
 }
+
+@media (min-width: 768px) {
+    .table-overflow {
+        max-height: calc(100vh - 9rem - 70px - 125px);
+    }
+}
+
+@media (min-width: 992px) {
+    .table-overflow {
+        max-height: calc(100vh - 9rem - 70px - 100px);
+    }
+}

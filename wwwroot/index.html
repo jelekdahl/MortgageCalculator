@@ -80,6 +80,48 @@
             );
         }
     </script>
+    <script>
+        window.scrollToResults = function () {
+            if (window.innerWidth < 768) {
+                let results = document.getElementById("results");
+                let input = document.getElementById("input");
+
+                if (results && input) {
+                    window.scroll({
+                        top: input.offsetTop + input.offsetHeight - 20,
+                        left: 0,
+                        behavior: "auto"
+                    });
+                }
+            }
+        }
+
+        window.scrollToSchedule = function () {
+            let schedule = document.getElementById("schedule");
+            let results = document.getElementById("results");
+
+            if (schedule && results) {
+                window.scroll({
+                    top: results.offsetTop + results.offsetHeight + 40,
+                    left: 0,
+                    behavior: "auto"
+                });
+            }
+        }
+
+        window.scrollToInput = function () {
+            let input = document.getElementById("input");
+            let topNavMenu = document.getElementById("topNavMenu");
+
+            if (input && topNavMenu) {
+                window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "auto"
+                });
+            }
+        }
+    </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 

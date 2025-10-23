@@ -1,4 +1,5 @@
 ﻿@page "/calculator"
+@inject IJSRuntime JS;
 
 <div class="container-xxl my-3">
     <h1 class="mb-2">Loan Calculator</h1>
@@ -27,12 +28,18 @@
                         Rate (APR)</b>. Enter the loan amount, term and interest rate in the fields, and click
                         calculate to see your personalized results.
                     </p>
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Got It
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div id="input" class="col-12 col-md-6">
             <div class="loanForm p-3 rounded-3">
                 <EditForm EditContext="editContext" OnValidSubmit="HandleSubmit">
                     <DataAnnotationsValidator />
@@ -59,7 +66,7 @@
                 </EditForm>
             </div>
         </div>
-        <div class="col-12 col-md-6 mt-4 mt-md-0">
+        <div id="results" class="col-12 col-md-6 mt-4 mt-md-0">
             <div class="d-flex flex-column justify-content-between p-3 h-100">
                 <div class="paymentTitle">
                     <p class="mb-1">Your Monthly Payment</p>
@@ -95,7 +102,7 @@
         </div>
         @if (showSchedule)
         {
-            <div class="col-12 fade-in">
+            <div id="schedule" class="col-12 fade-in">
                 <PaymentSchedule Payments="loan.Payments" />
             </div>
         }
@@ -107,6 +114,9 @@
     private EditContext? editContext;
     private bool showSchedule = false;
     private string buttonText = "Show Schedule";
+    private bool scrollToResults = false;
+    private bool scrollToInput = false;
+    private bool scrollToSchedule = false;
 
     protected override void OnInitialized()
     {
@@ -116,14 +126,49 @@
         loan.Rate = 5.0;
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            if (scrollToResults)
+            {
+                scrollToResults = false;
+                await JS.InvokeVoidAsync("scrollToResults");
+            }
+
+            if (scrollToInput)
+            {
+                scrollToInput = false;
+                await JS.InvokeVoidAsync("scrollToInput");
+            }
+
+            if (scrollToSchedule)
+            {
+                scrollToSchedule = false;
+                await JS.InvokeVoidAsync("scrollToSchedule");
+            }
+        }
+    }
+
     private void HandleSubmit()
     {
         loan = LoanUtils.GetPayments(loan);
+        scrollToResults = true;
     }
 
     private void ShowScheduleToggle()
     {
-        showSchedule = !showSchedule;
-        buttonText = showSchedule ? "Hide Schedule" : "Show Schedule";
+        if (showSchedule)
+        {
+            showSchedule = false;
+            buttonText = "Show Schedule";
+            scrollToInput = true;
+        }
+        else
+        {
+            showSchedule = true;
+            buttonText = "Hide Schedule";
+            scrollToSchedule = true;
+        }
     }
 }
