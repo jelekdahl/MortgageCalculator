@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="_redirects" />
+    <Compile Include="wwwroot\_redirects" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +17,10 @@
 
   <ItemGroup>
     <Folder Include="Components\Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\_redirects" />
   </ItemGroup>
 
 </Project>
