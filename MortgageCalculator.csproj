@@ -23,4 +23,11 @@
     <None Include="wwwroot\_redirects" />
   </ItemGroup>
 
+  <ItemGroup>
+	<!-- Ensure _redirects is not treated as C# source and always ends up in publish output -->
+	<Compile Remove="wwwroot\_redirects" />
+	<None Update="wwwroot\_redirects">
+		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+	</None>
+  </ItemGroup>
 </Project>
